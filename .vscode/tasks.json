@@ -1,0 +1,48 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build Hospital System",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-std=c++14",
+                "-Wall",
+                "-Wextra",
+                "-g",
+                "-I${workspaceFolder}/src",
+                "${workspaceFolder}/src/*.cpp",
+                "-o",
+                "${workspaceFolder}/hospital_system.exe"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "detail": "Build the Hospital Management System"
+        },
+        {
+            "label": "Clean Build",
+            "type": "shell",
+            "command": "del",
+            "args": [
+                "${workspaceFolder}/hospital_system.exe"
+            ],
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "Run Hospital System",
+            "type": "shell",
+            "command": "${workspaceFolder}/hospital_system.exe",
+            "group": "test",
+            "dependsOn": [
+                "Build Hospital System"
+            ],
+            "problemMatcher": []
+        }
+    ]
+}
